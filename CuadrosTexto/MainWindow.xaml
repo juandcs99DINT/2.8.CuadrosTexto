@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CuadrosTexto"
         mc:Ignorable="d"
-        Title="Cuadros de texto" Height="450" Width="800">
+        Title="Cuadros de texto" Height="300" Width="375" Icon="assets/128.ico">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Margin="31,44,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" Margin="31,114,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Edad" VerticalAlignment="Top" Margin="31,186,0,0"/>
+        <TextBlock x:Name="ayudaNombreTextBlock" Opacity="0.5" HorizontalAlignment="Left" Margin="165,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="23"/>
+        <TextBlock x:Name="ayudaApellidoTextBlock" Opacity="0.5" HorizontalAlignment="Left" Margin="165,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="23"/>
+        <TextBlock x:Name="errorEdadTextBlock" HorizontalAlignment="Left" Margin="165,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="23" Foreground="Red"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Tag="nombre"  KeyDown="datos_KeyDown"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Tag="apellido" KeyDown="datos_KeyDown"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Tag="edad" KeyDown="datos_KeyDown"/>
+
     </Grid>
 </Window>

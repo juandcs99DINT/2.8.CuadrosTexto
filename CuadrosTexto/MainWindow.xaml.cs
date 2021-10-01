@@ -15,14 +15,45 @@ using System.Windows.Shapes;
 
 namespace CuadrosTexto
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
+
+
+        private void datos_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+                switch(e.Key)
+                {
+                    case Key.F1:
+                    switch (textBox.Tag)
+                    {
+                        case "nombre":
+                            ayudaNombreTextBlock.Text = "Nombre del cliente";
+                            break;
+                        case "apellido":
+                            ayudaApellidoTextBlock.Text = "Apellido del cliente";
+                            break;
+                    }
+                        break;
+                case Key.F2:
+                    switch (textBox.Tag)
+                    {
+                        case "edad":
+                            int i;
+                            if (!int.TryParse(textBox.Text, out i))
+                                errorEdadTextBlock.Text = "Edad incorrecta";
+                            break;
+                    }
+                    break;
+                }
+               
+
+            }
+        }
     }
-}
+
