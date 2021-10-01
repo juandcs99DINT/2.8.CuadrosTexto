@@ -22,38 +22,32 @@ namespace CuadrosTexto
             InitializeComponent();
         }
 
-
-
         private void datos_KeyDown(object sender, KeyEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-                switch(e.Key)
+            if (e.Key == Key.F1)
+            {
+                switch (textBox.Tag)
                 {
-                    case Key.F1:
-                    switch (textBox.Tag)
-                    {
-                        case "nombre":
-                            ayudaNombreTextBlock.Text = "Nombre del cliente";
-                            break;
-                        case "apellido":
-                            ayudaApellidoTextBlock.Text = "Apellido del cliente";
-                            break;
-                    }
+                    case "nombre":
+                        ayudaNombreTextBlock.Text = "Nombre del cliente";
                         break;
-                case Key.F2:
-                    switch (textBox.Tag)
-                    {
-                        case "edad":
-                            int i;
-                            if (!int.TryParse(textBox.Text, out i))
-                                errorEdadTextBlock.Text = "Edad incorrecta";
-                            break;
-                    }
-                    break;
+                    case "apellido":
+                        ayudaApellidoTextBlock.Text = "Apellido del cliente";
+                        break;
                 }
-               
-
             }
         }
+
+        private void edad_KeyDown(object sender, KeyEventArgs e)
+        {
+            int i;
+            if (e.Key == Key.F2 && !int.TryParse(edadTextBox.Text, out i)) errorEdadTextBlock.Text = "Edad incorrecta";
+        }
     }
+
+
+
+}
+
 
