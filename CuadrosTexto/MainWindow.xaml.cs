@@ -30,10 +30,12 @@ namespace CuadrosTexto
                 switch (textBox.Tag)
                 {
                     case "nombre":
-                        ayudaNombreTextBlock.Text = "Nombre del cliente";
+                        if (ayudaNombreTextBlock.Visibility == Visibility.Hidden) ayudaNombreTextBlock.Visibility = Visibility.Visible;
+                        else ayudaNombreTextBlock.Visibility = Visibility.Hidden;
                         break;
                     case "apellido":
-                        ayudaApellidoTextBlock.Text = "Apellido del cliente";
+                        if (ayudaApellidoTextBlock.Visibility == Visibility.Hidden) ayudaApellidoTextBlock.Visibility = Visibility.Visible;
+                        else ayudaApellidoTextBlock.Visibility = Visibility.Hidden;
                         break;
                 }
             }
@@ -42,7 +44,9 @@ namespace CuadrosTexto
         private void edad_KeyDown(object sender, KeyEventArgs e)
         {
             int i;
-            if (e.Key == Key.F2 && !int.TryParse(edadTextBox.Text, out i)) errorEdadTextBlock.Text = "Edad incorrecta";
+            if (e.Key == Key.F2 && !int.TryParse(edadTextBox.Text, out i) && errorEdadTextBlock.Visibility == Visibility.Hidden)
+                errorEdadTextBlock.Visibility = Visibility.Visible;
+            else if(e.Key == Key.F2 && int.TryParse(edadTextBox.Text, out i) && errorEdadTextBlock.Visibility == Visibility.Visible) errorEdadTextBlock.Visibility = Visibility.Hidden;
         }
     }
 
